@@ -42,7 +42,6 @@ class MusicTracksViewController: UIViewController {
       let viewController = segue.destination as? MusicTrackDetailViewController,
       let selectedTrack = sender as? Track {
       viewController.track = selectedTrack
-        print(selectedTrack)
     }
   }
 }

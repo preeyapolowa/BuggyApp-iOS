@@ -26,6 +26,6 @@ class ThirdViewController: UIViewController,UITextFieldDelegate {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Third", bundle: nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: "WelcomePage") as! WelcomeViewController
         vc.nickname = self.mNameText.text
-        self.present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc,animated: true)
     }
 }
