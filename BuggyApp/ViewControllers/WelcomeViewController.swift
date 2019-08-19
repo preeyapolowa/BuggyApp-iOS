@@ -17,12 +17,5 @@ class WelcomeViewController: UIViewController {
         
         self.mNameText.text = nickname
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
 
 }
