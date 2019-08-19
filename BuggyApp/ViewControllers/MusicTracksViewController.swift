@@ -25,6 +25,7 @@ class MusicTracksViewController: UIViewController {
     
     APIManager.shared.getArtistInfo(artistName: "taylorswift") { [weak self] result in
       switch result {
+        
       case .success(let tracks):
         self?.tracks = tracks
       case .failure(let error):
@@ -41,13 +42,15 @@ class MusicTracksViewController: UIViewController {
       let viewController = segue.destination as? MusicTrackDetailViewController,
       let selectedTrack = sender as? Track {
       viewController.track = selectedTrack
+        print(selectedTrack)
     }
   }
 }
 
 extension MusicTracksViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return tracks.isEmpty ? 0 : 10
+    
+    return tracks.isEmpty ? 0 : tracks.count
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,5 +70,7 @@ extension MusicTracksViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)
+    performSegue(withIdentifier: "showDetail", sender: self)
+
   }
 }
